@@ -1,0 +1,51 @@
+{
+  "name": "efficient-mobile-apis",
+  "version": "1.0.0",
+  "description": "An exploration into techniques that can be used to improve API responsiveness",
+  "main": "application.js",
+  "scripts": {
+    "start": "env NODE_PATH=. nodemon application.js | bunyan",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/evanshortiss/efficient-mobile-apis.git"
+  },
+  "keywords": [
+    "rhmap",
+    "api",
+    "mobile",
+    "response",
+    "responsiveness",
+    "rest",
+    "restful",
+    "red",
+    "hat",
+    "mobile",
+    "express"
+  ],
+  "author": "Evan Shortiss",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/evanshortiss/efficient-mobile-apis/issues"
+  },
+  "homepage": "https://github.com/evanshortiss/efficient-mobile-apis#readme",
+  "devDependencies": {
+    "bunyan": "~1.8.4",
+    "eslint": "~3.8.1",
+    "fh-bunyan": "~0.3.0",
+    "nodemon": "~1.11.0"
+  },
+  "dependencies": {
+    "bluebird": "~3.4.6",
+    "body-parser": "~1.15.2",
+    "cors": "~2.8.1",
+    "env-var": "~2.1.0",
+    "express": "~4.14.0",
+    "fh-mbaas-api": "~5.14.2",
+    "request": "~2.76.0"
+  },
+  "engines": {
+    "node": ">=4.0.0"
+  }
+}
