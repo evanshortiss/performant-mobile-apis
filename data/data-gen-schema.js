@@ -20,7 +20,7 @@
       country: 'US',
       zip: '{{integer(100, 10000)}}'
     },
-    about: '{{lorem(2, "paragraphs")}}',
+    about: '{{lorem(10, "paragraphs")}}',
     registered: '{{date(new Date(2014, 0, 1), new Date(), "YYYY-MM-ddThh:mm:ss Z")}}',
     latitude: '{{floating(-90.000001, 90)}}',
     longitude: '{{floating(-180.000001, 180)}}',

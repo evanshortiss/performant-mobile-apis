@@ -11,8 +11,8 @@ SOAP), and then it uses a modern weather API to get weather data for each job
 before finally returning them to the mobile device making the API call.
 Typically in a scenario like this the ESB response time can be high, and coupled
 with getting weather information it can lead to response times that are higher
-than we or our end users are happy with. It also facilitates sending text
-messages via it's API.
+than we or our end users are happy with. This application also facilitates
+sending text messages via it's RESTful API.
 
 ## Part 1
 In the first part of these blog posts we discuss how building performant mobile
@@ -21,14 +21,22 @@ well received by your users. Should the user experience suffer due to poor API
 response times users will be quick to tire of your applications and might go
 as far as to uninstall them.
 
-For an example of what slow response times look like take a look at the branch
-of this repo named _part-one_. If you're not sure how to do that then try the
-following from a terminal:
+For an example of what slow response times look like take a look at the tag
+on this repo named _part-one_. If you're not sure how to do that then try the
+following from a terminal.
+
+*NOTE: Installing Git, node.js (v4 +), and npm is outside the scope of this
+article, but it's very easy on all major platforms. Getting a Dark Sky API key
+is also simple, just go to [darksky.net](https://darksky.net/dev/) and signup
+for one.*
 
 ```
 # Clone the repo locally and cd into it's directory
 git clone git@github.com:evanshortiss/performant-mobile-apis.git
 cd performant-mobile-apis
+
+# access the tag
+git checkout part-one
 
 # Install required dependencies
 npm install
@@ -40,17 +48,16 @@ export DS_API_KEY=YOUR_API_KEY
 npm start
 ```
 
-Installing Git, node.js (v4 +), and npm is outside the scope of this article,
-but it's very easy on all major platforms. Getting a Dark Sky API key is also
-simple, just go to [darksky.net](https://darksky.net/dev/) and signup for one.
-
-Once the application is running you can open a use cURL, Postman (there's a
+Once the application is running you can use cURL, Postman (there's a
 Postman collection in this repository for convenience), or a web
 browser to make a HTTP call to [http://localhost:8009/jobs](http://localhost:8009/jobs)
-to get a list of jobs and their weather. It might take a while!
+to get a list of jobs and their weather. It might take a while since we're
+deliberately trying to demonstrate a poor user experience!
 
-Here's a small benchmark showing the current performance of this application for
-10 concurrent requests without any MBaaS optimizations:
+Below is a small benchmark showing the current performance of this application
+for 10 concurrent requests. 22.9 seconds is a long time to spend processing 10
+requests, especially requests that are such perfect candidates for optimizations
+that an MBaaS solution such as Red Hat Mobile Application Platform can provide.
 
 ```
 eshortis@eshortis-OSX:~$ ab -n 20 -c 10 http://localhost:8009/jobs
