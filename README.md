@@ -40,9 +40,9 @@ export DS_API_KEY=YOUR_API_KEY
 npm start
 ```
 
-Installing Git, node.js, and npm is outside the scope of this article, but it's
-very easy on all major platforms. Getting a Dark Sky API key is also simple,
-just go to [darksky.net](https://darksky.net/dev/) and signup for one.
+Installing Git, node.js (v4 +), and npm is outside the scope of this article,
+but it's very easy on all major platforms. Getting a Dark Sky API key is also
+simple, just go to [darksky.net](https://darksky.net/dev/) and signup for one.
 
 Once the application is running you can open a use cURL, Postman (there's a
 Postman collection in this repository for convenience), or a web
