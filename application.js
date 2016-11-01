@@ -15,6 +15,8 @@ const app = express();
  */
 app.use(cors());
 
+app.use(require('compression')());
+
 // Returns a response time header to easily determine request processing time
 app.use(require('response-time')());
 
@@ -34,6 +36,9 @@ app.use(mbaasExpress.errorHandler());
 
 var port = process.env.FH_PORT || process.env.OPENSHIFT_NODEJS_PORT || 8009;
 var host = process.env.OPENSHIFT_NODEJS_IP || '0.0.0.0';
-app.listen(port, host, function () {
+app.listen(port, host, function (err) {
+  if (err) {
+    throw err;
+  }
   log.info('App started at: %s on port: %s', new Date(), port);
 });

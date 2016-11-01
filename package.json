@@ -39,10 +39,13 @@
   "dependencies": {
     "bluebird": "~3.4.6",
     "body-parser": "~1.15.2",
+    "compression": "~1.6.2",
     "cors": "~2.8.1",
     "env-var": "~2.1.0",
-    "express": "~4.0.0",
+    "express": "~4.14.0",
     "fh-mbaas-api": "~5.14.2",
+    "lodash": "~4.16.4",
+    "ramda": "~0.22.1",
     "request": "~2.76.0"
   },
   "engines": {
