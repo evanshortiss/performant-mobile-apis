@@ -131,3 +131,17 @@ the steps outlined in part one, but instead change the `git checkout` to use
 If you'd like to see the small changes we made between the original codebase and
 part two just run `git diff part-one..part-two`. These changes can reduce
 bandwidth usage of this app by up to 95% depending on the structure of the data!
+
+## Part 3
+In part 3 we aimed to reduce request processing time. Reducing processing time
+improves user experience since your application will feel faster and it can also
+reduce battery usage since a connection does not need to be kept open for as
+long.
+
+We also utilised the cache-control header to ensure clients that needed the same
+resources frequently would use a locally cached copy for a time period defined
+by the express application.
+
+To view the code for part three simply perform a `git fetch origin` and follow
+the steps outlined in part one, but instead change the `git checkout` to use
+`part-three`.
