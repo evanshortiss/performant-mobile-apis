@@ -14,7 +14,22 @@ with getting weather information it can lead to response times that are higher
 than we or our end users are happy with. This application also facilitates
 sending text messages via it's RESTful API.
 
-## Part 1
+## Prerequisites
+You should install the following on your machine and use the default ports and
+settings.
+
+* node.js >= v4.4.3
+* npm (will be installed with node.js)
+* git
+* MongoDB >= v2.4.6
+* Redis >= v3.0
+
+*NOTE: Installing Git, node.js (v4 +), npm, and mongodb is outside the scope of
+this article, but it's very easy on all major platforms. Getting a Dark Sky API
+key is also simple, just go to [darksky.net](https://darksky.net/dev/) and
+signup for one.*
+
+## Part 1 ([Blog Link](http://red.ht/2jyKGMB))
 In the first part of these blog posts we discuss how building performant mobile
 APIs is extremely important if you hope to create a mobile strategy that is
 well received by your users. Should the user experience suffer due to poor API
@@ -25,14 +40,9 @@ For an example of what slow response times look like take a look at the tag
 on this repo named _part-one_. If you're not sure how to do that then try the
 following from a terminal.
 
-*NOTE: Installing Git, node.js (v4 +), and npm is outside the scope of this
-article, but it's very easy on all major platforms. Getting a Dark Sky API key
-is also simple, just go to [darksky.net](https://darksky.net/dev/) and signup
-for one.*
-
 ```
 # Clone the repo locally and cd into it's directory
-git clone git@github.com:evanshortiss/performant-mobile-apis.git
+git clone git@github.com:evanshortiss/performant-mobile-apis.git performant-mobile-apis
 cd performant-mobile-apis
 
 # access the tag
@@ -107,6 +117,17 @@ Percentage of the requests served within a certain time (ms)
 ```
 
 In each part of this series we will be updating this codebase with optimizations
-to improve the performance of this API and get those numbers down lower.
+to improve the performance of this API and get those numbers much lower.
 
-## Part 2
+## Part 2 ([Blog Link](http://red.ht/2k1G8Lo))
+In part two of the blog series we aim to reduce the volume of data transmitted
+between the client and server since this will shorten request times on slow
+connections, reduce the mobile data usage, and drain less battery.
+
+To view the code for part two simply perform a `git fetch origin` and follow
+the steps outlined in part one, but instead change the `git checkout` to use
+`part-two`.
+
+If you'd like to see the small changes we made between the original codebase and
+part two just run `git diff part-one..part-two`. These changes can reduce
+bandwidth usage of this app by up to 95% depending on the structure of the data!

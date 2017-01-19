@@ -5,6 +5,7 @@ const mbaasApi = require('fh-mbaas-api');
 const mbaasExpress = mbaasApi.mbaasExpress();
 const cors = require('cors');
 const log = require('fh-bunyan').getLogger('application');
+const cache = require('lib/router-cache');
 
 const app = express();
 
@@ -27,7 +28,9 @@ app.use('/mbaas', mbaasExpress.mbaas);
 app.use(mbaasExpress.fhmiddleware());
 
 // Our jobs API for our mobile application, allows us to GET all, or by ID
-app.use('/jobs', require('lib/routes/jobs'));
+// Returns cached responses for GET requests since it uses our cache middleware
+app.use('/jobs', cache, require('lib/routes/jobs'));
+
 // Texting API, allows devices to send a text to a number
 app.use('/text', require('lib/routes/text'));
 
@@ -40,5 +43,9 @@ app.listen(port, host, function (err) {
   if (err) {
     throw err;
   }
+
+  // Start cron jobs. They will run at the specified cron tab
+  require('lib/jobs').startJobs();
+
   log.info('App started at: %s on port: %s', new Date(), port);
 });

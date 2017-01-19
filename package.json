@@ -4,7 +4,7 @@
   "description": "An exploration into techniques that can be used to improve API responsiveness",
   "main": "application.js",
   "scripts": {
-    "start": "env NODE_PATH=. nodemon application.js | bunyan",
+    "start": "env NODE_PATH=. FH_USE_LOCAL_DB=true nodemon application.js | bunyan",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -34,6 +34,7 @@
     "bunyan": "~1.8.4",
     "eslint": "~3.8.1",
     "fh-bunyan": "~0.3.0",
+    "loadtest": "~2.2.1",
     "nodemon": "~1.11.0"
   },
   "dependencies": {
@@ -41,8 +42,12 @@
     "body-parser": "~1.15.2",
     "compression": "~1.6.2",
     "cors": "~2.8.1",
+    "cron": "~1.2.1",
     "env-var": "~2.1.0",
+    "expeditious": "~0.1.0",
+    "expeditious-engine-memory": "~0.2.0",
     "express": "~4.14.0",
+    "express-expeditious": "~2.0.0",
     "fh-mbaas-api": "~5.14.2",
     "ramda": "~0.22.1",
     "request": "~2.76.0",
